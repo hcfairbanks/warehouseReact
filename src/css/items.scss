@@ -1,0 +1,53 @@
+$backGroundDark: #DCDCDC;
+$backGroundLight: #F0F0F0;
+
+.odd_row{
+  height: 60px;
+  background-color: $backGroundDark;
+}
+.even_row{
+  height: 60px;
+  background-color: $backGroundLight;
+}
+
+.itemsTh{
+  height: 60px;
+  text-align: center;
+  font-weight: bold;
+  border: 2pt solid black;
+}
+
+.itemsTd{
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.itemsTable {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.itemTable {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-bottom: 0.5px solid lightgray;
+  border-left: 0.5px solid lightgray;
+  border-right: 0.5px solid lightgray;
+}
+
+.itemTr{
+  height: 60px;
+  text-align: center;
+  font-weight: bold;
+  border: 0.5px solid lightgray;
+}
+
+.itemTd {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.react-datepicker-wrapper, .react-datepicker__input-container {
+  display: block !important;
+}

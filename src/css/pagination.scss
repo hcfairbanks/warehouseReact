@@ -1,0 +1,29 @@
+.page_button{
+  display: inline-block;
+  border: 1px solid;
+  padding: 4px 8px;
+  margin: 2px;
+  background-color: #DCDCDC;
+  cursor: pointer;
+}
+
+.page_button_disabled{
+  display: inline-block;
+  border: 1px solid; 
+  padding: 4px 8px;
+  margin: 2px;
+  background-color: white;
+}
+
+.pagination_dots{
+  display: inline-block;
+  padding: 4px 8px;
+  margin: 2px 2px 0px 2px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.page_button:hover {
+  background-color: #5bc0de;
+}
