@@ -64,24 +64,23 @@ class Items extends Component {
             <table className={"itemsTable"}>
               <tbody>
                 <tr className={"itemsTh bg-light"}>
-                  <td>Id</td>
                   <td>Name</td>
                   <td>Category</td>
                   <td>Description</td>
+                  <td>User</td>
                   <td>Price</td>
                   <td>Purchase Date</td>
                   <td>Purchase Details</td>
                   <td>Purchase Location</td>
-                  <td>User</td>
                   <td>Weight</td>
                   <td></td>
                 </tr>
                 { this.props.itemsReducer.items.map( (item,index) => (
                   <tr key={`item_${item.id}`} className={this.rowClass(index)}>
-                    <td className={"itemsTd"}>{ item.id }</td>
                     <td className={"itemsTd"}>{ item.name }</td>
                     <td className={"itemsTd"}>{ item.category.name }</td>
                     <td className={"itemsTd"}>{ item.description }</td>
+                    <td className={"itemsTd"}>{ item.user.username }</td>
                     <td className={"itemsTd"}>{ item.price }</td>
                     <td className={"itemsTd"}>
                       {/* ISO 8601 Date Format (YYYY-MM-DD) */}
@@ -91,7 +90,6 @@ class Items extends Component {
                     </td>
                     <td className={"itemsTd"}>{ item.purchaseDetails }</td>
                     <td className={"itemsTd"}>{ item.purchaseLocation }</td>
-                    <td className={"itemsTd"}>{ item.user.username }</td>
                     <td className={"itemsTd"}>{ item.weight }</td>
                     <td className={"itemsTd"}>
                       {/* TODO Change to roll over icons */}

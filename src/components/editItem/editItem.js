@@ -28,10 +28,8 @@ class editItem extends Component {
 
   async getItem(){
     const itemId = this.props.match.params.id;
-    console.log('Item Id: ',itemId);
     let res = await axios.get(`${baseUrl}/items/${itemId}`,
                               { withCredentials: true } );
-    console.log(res.data)
     this.setState(res.data);
   }
 
@@ -41,13 +39,8 @@ class editItem extends Component {
     this.setState({categories: res.data.categories });
   }
 
-  checkState(){
-    console.log(`---Current State---`,this.state);
-  }
-
   inputChangeHandler(event) {
     this.setState({ [event.target.name]: event.target.value });
-    console.log('---New State---',this.state);
   }
 
   changePurchaseDate = (date) => {

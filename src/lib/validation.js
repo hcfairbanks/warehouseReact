@@ -7,7 +7,6 @@ export const validateItem = (inputIds) => {
 
   let validInputs = true;
   inputIds.forEach( (inputId) => {
-    console.log(inputId);
     const inputElement = document.getElementById(inputId);
     if (inputElement.value.length === 0){
       validInputs = false;

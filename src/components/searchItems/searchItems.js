@@ -37,7 +37,6 @@ class SearchItems extends Component {
 
   async searchItems(){
     const item_names = [
-      'id',
       'name',
       'categoryId',
       'description',
@@ -69,38 +68,36 @@ class SearchItems extends Component {
             <table style={{width:"100%"}}>
             <tbody>
             <tr>
-            <td>
-              <input
-                type='text'
-                placeholder={'Id'}
-                id={'search_item_id'}
-                className={'form-control'}
-              />
-            </td>
-            <td>
-              <input
-                type='text'
-                placeholder={'Name'}
-                id={'search_item_name'}
-                className={'form-control'}
-              />
-            </td>
-            <td>
-              <CategoriesDropDown
-                id={'search_item_categoryId'}
-                className={"form-control"}
-              />
-            </td>
-            <td>
-              <input
-                type='text'
-                placeholder={'Description'}
-                id={'search_item_description'}
-                className={'form-control'}
-              />
-            </td>
-            <td>
-            </td>
+              <td>
+                <input
+                  type='text'
+                  placeholder={'Name'}
+                  id={'search_item_name'}
+                  className={'form-control'}
+                />
+              </td>
+              <td>
+                <CategoriesDropDown
+                  id={'search_item_categoryId'}
+                  className={"form-control"}
+                />
+              </td>
+              <td>
+                <input
+                  type='text'
+                  placeholder={'Description'}
+                  id={'search_item_description'}
+                  className={'form-control'}
+                />
+              </td>
+              <td>
+                <input
+                  type='text'
+                  placeholder={'User Id'}
+                  id={'search_item_userId'}
+                  className={'form-control'}
+                />
+              </td>
             </tr>
             <tr>
               <td>
@@ -132,14 +129,6 @@ class SearchItems extends Component {
                   type='text'
                   placeholder={'Location'}
                   id={'search_item_purchaseLocation'}
-                  className={'form-control'}
-                />
-              </td>
-              <td>
-                <input
-                  type='text'
-                  placeholder={'User Id'}
-                  id={'search_item_userId'}
                   className={'form-control'}
                 />
               </td>
@@ -181,6 +170,11 @@ class SearchItems extends Component {
                   className={'form-control'}
                 />
               </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
               <td>
                 <button
                   className={"btn btn-outline-primary"}
