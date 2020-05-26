@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import { createSearch } from '../../lib/createSearch';
 import DatePicker from 'react-datepicker';
-import CategoriesDropDown from '../categoriesDropDown/categoriesDropDown'
+import CategoriesDropDown from '../categoriesDropDown/categoriesDropDown';
+import UsersDropDown from '/home/deploy/git/warehouse/src/components/usersDropDown.js/usersDropDown.js';
 import { baseUrl } from '../../config/config';
 import '../../css/items.scss';
 import "react-datepicker/dist/react-datepicker.css";
@@ -91,11 +92,9 @@ class SearchItems extends Component {
                 />
               </td>
               <td>
-                <input
-                  type='text'
-                  placeholder={'User Id'}
+                <UsersDropDown
                   id={'search_item_userId'}
-                  className={'form-control'}
+                  className={"form-control"}
                 />
               </td>
             </tr>
