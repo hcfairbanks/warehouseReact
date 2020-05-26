@@ -18,18 +18,26 @@ class newItem extends Component {
       categoryId: '1',
       weight: '1',
       userId: localStorage.getItem("id"),
-      categories: []
+      categories: [],
+      users: []
     }
   };
 
   componentDidMount(){
     this.getCategories()
+    this.getUsers()
   }
 
   async getCategories(){
     let res = await axios.get(`${baseUrl}/categories?page=1`,
                               { withCredentials: true } );
     this.setState({categories: res.data.categories });
+  }
+
+  async getUsers(){
+    let res = await axios.get(`${baseUrl}/auth/users?page=1`,
+                              { withCredentials: true } );
+    this.setState({users: res.data.users });
   }
 
   inputChangeHandler(event) {
@@ -69,6 +77,13 @@ class newItem extends Component {
         {category.name}
       </option> 
     );
+    const userOptions = this.state.users.map((user) =>
+    <option
+      key={`userId_${user.id}`}
+      value={user.id}>
+      {user.username}
+    </option> 
+  );
     return (
       <div className="Item">
         <Navlist history={this.props.history}/>
@@ -180,16 +195,15 @@ class newItem extends Component {
                     <tr className={"itemTr bg-light"}>
                       <td>User Id</td>
                       <td className={"itemTd"}>
-                        <input
+                      <select
                           id={"userId"}
                           className={"form-control"}
                           name={"userId"}
-                          type={"number"}
-                          step={"1"}
-                          min={"1"}
                           defaultValue={this.state.userId}
                           onChange={e => this.inputChangeHandler(e)}
-                        />
+                          >
+                          { userOptions }
+                        </select>
                       </td>
                     </tr>
                     <tr className={"itemTr bg-light"}>

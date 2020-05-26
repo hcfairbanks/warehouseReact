@@ -17,13 +17,15 @@ class editItem extends Component {
       // If you ever see this date anywhere
       // you know something strange is happening
       purchaseDate: '1970-01-01',
-      categories: []
+      categories: [],
+      users:[]
     }
   };
   
   componentDidMount(){
     this.getItem();
     this.getCategories();
+    this.getUsers();
   }
 
   async getItem(){
@@ -37,6 +39,12 @@ class editItem extends Component {
     let res = await axios.get(`${baseUrl}/categories?page=1`,
                               { withCredentials: true } );
     this.setState({categories: res.data.categories });
+  }
+
+  async getUsers(){
+    let res = await axios.get(`${baseUrl}/auth/users?page=1`,
+                              { withCredentials: true } );
+    this.setState({users: res.data.users });
   }
 
   inputChangeHandler(event) {
@@ -77,6 +85,13 @@ class editItem extends Component {
           {category.name}
       </option> 
     );
+    const userOptions = this.state.users.map((user) =>
+      <option
+        key={`userId_${user.id}`}
+        value={user.id}>
+          {user.username}
+      </option> 
+  );
     return (
       <div className="Item">
       <Navlist history={this.props.history}/>
@@ -109,6 +124,7 @@ class editItem extends Component {
                         id={"categoryId"}
                         className={"form-control"}
                         name={"categoryId"}
+                        value={this.state.categoryId}
                         defaultValue={this.state.categoryId}
                         onChange={e => this.inputChangeHandler(e)}
                         >
@@ -188,16 +204,16 @@ class editItem extends Component {
                   <tr className={"itemTr bg-light"}>
                     <td>User Id</td>
                     <td className={"itemTd"}>
-                      <input
+                      <select
                         id={"userId"}
                         className={"form-control"}
                         name={"userId"}
-                        type={"number"}
-                        step={"1"}
-                        min={"1"}
+                        value={this.state.userId}
                         defaultValue={this.state.userId}
                         onChange={e => this.inputChangeHandler(e)}
-                      />
+                        >
+                        { userOptions }
+                      </select>
                     </td>
                   </tr>
                   <tr className={"itemTr bg-light"}>
